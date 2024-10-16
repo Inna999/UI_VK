@@ -9,6 +9,6 @@ import UIKit
 
 class PhotoCell: UICollectionViewCell {
     
-    @IBOutlet weak var /*friendAvatar*/ photo: UIImageView!
+    @IBOutlet weak var photo: UIImageView!
     
 }

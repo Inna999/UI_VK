@@ -9,7 +9,6 @@ import Foundation
 import RealmSwift
 
 protocol MyGroupesPresenterProtocol: AnyObject {
-    
     func addGroupe(_ name: String, _ avatar: String)
 }
 
@@ -25,9 +24,6 @@ class MyGroupesPresenter {
 }
 
 extension MyGroupesPresenter: MyGroupesPresenterProtocol {
-    
-   
-    
     func addGroupe(_ name: String, _ avatar: String) {
         interactor.addGroupe(name, avatar)
     }

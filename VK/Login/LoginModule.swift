@@ -14,9 +14,7 @@ class LoginModule: LoginModuleProtocol {
         let interactor = LoginInteractor()
         let router = LoginRouter()
         let presenter = LoginPresenter(interactor: interactor, router: router)
-       
-//        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "Main") as! LoginViewController
-        
+               
         viewController.presenter = presenter
         presenter.view = viewController
         interactor.presenter = presenter

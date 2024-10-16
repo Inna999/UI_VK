@@ -1,4 +1,5 @@
 import UIKit
+import RealmSwift
 
 protocol LoginViewProtocol: AnyObject {
     func showLoginError()
@@ -58,7 +59,6 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         //подписываемся на два уведомления, одно пиходит при появлении клавиатуры
         NotificationCenter.default.addObserver(
             self,

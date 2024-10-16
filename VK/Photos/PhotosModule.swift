@@ -7,12 +7,12 @@
 import UIKit
 
 protocol PhotosModuleProtocol {
-    func build(with viewController: PhotosViewController, idFriend: Int)
+    func build(with viewController: PhotosViewController)
 }
 
 class PhotosModule {
-    func build(with viewController: PhotosViewController, idFriend: String)  {
-        let interactor = PhotosInteractor(idFriend: idFriend)
+    func build(with viewController: PhotosViewController)  {
+        let interactor = PhotosInteractor()
         let router = PhotosRouter()
         let presenter = PhotosPresenter(interactor: interactor, router: router)
 

@@ -10,11 +10,8 @@ import UIKit
 class AllGroupesCell: UITableViewCell {
 
     @IBOutlet weak var groupAvatar: UIImageView!
-    
     @IBOutlet weak var groupName: UILabel!
-    
     @IBOutlet weak var followersCount: UILabel!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -16,8 +16,8 @@ class Photo: Object {
 
     convenience init(json: JSON) {//}, id: String) {
         self.init()
-        id = String(json["user_id"].intValue)
-       // self.id = id
+       id = String(json["id"].intValue)
+    //    self.id = id
         photo = json["orig_photo"]["url"].stringValue
     }
 }

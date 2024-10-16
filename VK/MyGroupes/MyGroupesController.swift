@@ -56,12 +56,7 @@ class MyGroupesViewController: UITableViewController {
                let avatar = allGroupesViewController.groupes?[indexPath.row].photo {
                 // проверка, что этой группы еще нет в списке
                 if !(myGroupes?.contains(Groupe(name: group, photo: avatar)) ?? false) {
-              //      !groups.contains(group) {
-                   
-                    presenter?.addGroupe(group, avatar)
-                    //groups.append(group)
-                    //avatars.append(avatar)
-                 //   tableView.reloadData()
+                            presenter?.addGroupe(group, avatar)
                 }
             }
         }

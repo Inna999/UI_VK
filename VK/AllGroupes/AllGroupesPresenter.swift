@@ -23,7 +23,6 @@ class AllGroupesPresenter {
 }
 
 extension AllGroupesPresenter: AllGroupesPresenterProtocol {
-    
     func viewDidLoaded() {
         view?.groupes = interactor.getGroupes()
     }

@@ -19,7 +19,7 @@ class User: Object {
         self.init()
         
         //self.id = id
-        id = String(json["user_id"].intValue)
+        id = String(json["id"].intValue)
         firstName = json["first_name"].stringValue
         lastName = json["last_name"].stringValue
         photo = json["photo_100"].stringValue

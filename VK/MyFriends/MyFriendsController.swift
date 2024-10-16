@@ -11,25 +11,20 @@ import RealmSwift
 protocol MyFriendsViewProtocol: AnyObject {
     var friends: Results<User>? { get }
     var token: NotificationToken? { get }
-    
     func pairTableAndRealm()
-    func getPhotoFromUrl(_ url: String) -> UIImage?
 }
 
 class MyFriendsViewController: UITableViewController {
-    
     var presenter: MyFriendsPresenterProtocol?
     let module = MyFriendsModule()
-   // var users = [User]()
     var token: NotificationToken?
     var friends: Results<User>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         module.build(with: self)
-      //  presenter?.viewDidLoaded()
+        presenter?.viewDidLoaded()
         pairTableAndRealm()
-        
     }
 
     // MARK: - Table view data source
@@ -47,8 +42,7 @@ class MyFriendsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyFriend", for: indexPath) as! MyFriendsCell
-        
-        //let friend = users[indexPath.row]
+    
         guard let friend = friends?[indexPath.row] else { return cell }
         cell.friendName.text = friend.firstName + " " + friend.lastName
         //загрузка аватара из url
@@ -61,14 +55,19 @@ class MyFriendsViewController: UITableViewController {
             let photosViewController = segue.destination as! PhotosViewController
             if let indexPath = tableView.indexPathForSelectedRow {
                 photosViewController.idFriend = friends?[indexPath.row].id ?? ""
-                print(indexPath.row)
             }
         }
+    }
+    // получение фото по url
+    func getPhotoFromUrl(_ url: String) -> UIImage? {
+        if let photoURL:URL = URL(string: url), let photoData = try? Data(contentsOf: photoURL) {
+            return UIImage(data: photoData)
+        }
+        return nil
     }
 }
 
 extension MyFriendsViewController: MyFriendsViewProtocol {
-    
     // связь данных в таблице и БД
     func pairTableAndRealm() {
         presenter?.getFriends(&friends)
@@ -92,10 +91,5 @@ extension MyFriendsViewController: MyFriendsViewProtocol {
         }
         
     }
-    func getPhotoFromUrl(_ url: String) -> UIImage? {
-        if let photoURL:URL = URL(string: url), let photoData = try? Data(contentsOf: photoURL) {
-            return UIImage(data: photoData)
-        }
-        return nil
-    }
+    
 }

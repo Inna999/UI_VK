@@ -10,8 +10,7 @@ import RealmSwift
 
 protocol PhotosPresenterProtocol: AnyObject {
     func viewDidLoaded()
-    func photosDidLoaded(photos: Results<Photo>)
-    func getPhotos(_ photos: inout Results<Photo>?)
+    func photosDidLoaded(photos: [Photo])
 }
 
 class PhotosPresenter {
@@ -29,14 +28,11 @@ extension PhotosPresenter: PhotosPresenterProtocol {
     
     func viewDidLoaded() {
         guard let idFriend = view?.idFriend, idFriend != "" else { return }
-        interactor.loadPhotos(idFriend: String(idFriend))
+        interactor.loadPhotos(idFriend: idFriend)
     }
     
-    func photosDidLoaded(photos: Results<Photo>) {
+    func photosDidLoaded(photos: [Photo]) {
+        view?.photos = photos
         view?.collectionView.reloadData()
-    }
-    
-    func getPhotos(_ photos: inout Results<Photo>?) {
-        interactor.getPhotos(&photos)
     }
 }
