@@ -35,10 +35,10 @@ class VkApiServise {
                     let json = try JSON(data: data)
                     switch method {
                         case "users.getFollowers":
-                        let users = json["response"]["items"].flatMap { User(json: $0.1) }
+                        let users = json["response"]["items"].compactMap { User(json: $0.1) }
                             self.saveDataToRealm(users)
                         case "photos.get":
-                        let photos = json["response"]["items"].flatMap { Photo(json: $0.1) }
+                        let photos = json["response"]["items"].compactMap { Photo(json: $0.1) }
                             completion(photos)
                         self.saveDataToRealm(photos)
                         default:

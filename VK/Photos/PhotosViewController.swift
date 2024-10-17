@@ -44,10 +44,11 @@ class PhotosViewController: UICollectionViewController {
     }
     
     func getPhotoFromUrl(_ url: String) -> UIImage? {
-        if let photoURL:URL = URL(string: url), let photoData = try? Data(contentsOf: photoURL) {
-            return UIImage(data: photoData)
-        }
-        return nil
+        var image: UIImage? = nil
+            if let photoURL:URL = URL(string: url), let photoData = try? Data(contentsOf: photoURL) {
+                image = UIImage(data: photoData)
+            }
+        return image
     }
 }
 

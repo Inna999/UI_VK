@@ -48,6 +48,13 @@
 		9D7DE4472CB8065C0028EC6E /* PhotosModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7DE4462CB8065C0028EC6E /* PhotosModule.swift */; };
 		9D7DE4492CB806770028EC6E /* PhotosRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7DE4482CB806770028EC6E /* PhotosRouter.swift */; };
 		9DE6CB472CB5608100F5D38F /* VkApiServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE6CB462CB5608100F5D38F /* VkApiServise.swift */; };
+		9DF6A06C2CC0EDF5009EC544 /* LentaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6A06B2CC0EDF5009EC544 /* LentaViewController.swift */; };
+		9DF6A06E2CC0EF6D009EC544 /* LentaNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6A06D2CC0EF6D009EC544 /* LentaNewsCell.swift */; };
+		9DF6A0702CC0EF99009EC544 /* LentaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6A06F2CC0EF99009EC544 /* LentaPresenter.swift */; };
+		9DF6A0722CC0EFB3009EC544 /* LentaRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6A0712CC0EFB3009EC544 /* LentaRouter.swift */; };
+		9DF6A0742CC0EFC9009EC544 /* LentaInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6A0732CC0EFC9009EC544 /* LentaInteractor.swift */; };
+		9DF6A0762CC0EFDA009EC544 /* LentaModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6A0752CC0EFDA009EC544 /* LentaModule.swift */; };
+		9DF6A0782CC10256009EC544 /* LentaPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6A0772CC10256009EC544 /* LentaPhotoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -104,6 +111,13 @@
 		9D7DE4462CB8065C0028EC6E /* PhotosModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModule.swift; sourceTree = "<group>"; };
 		9D7DE4482CB806770028EC6E /* PhotosRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRouter.swift; sourceTree = "<group>"; };
 		9DE6CB462CB5608100F5D38F /* VkApiServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkApiServise.swift; sourceTree = "<group>"; };
+		9DF6A06B2CC0EDF5009EC544 /* LentaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LentaViewController.swift; sourceTree = "<group>"; };
+		9DF6A06D2CC0EF6D009EC544 /* LentaNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LentaNewsCell.swift; sourceTree = "<group>"; };
+		9DF6A06F2CC0EF99009EC544 /* LentaPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LentaPresenter.swift; sourceTree = "<group>"; };
+		9DF6A0712CC0EFB3009EC544 /* LentaRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LentaRouter.swift; sourceTree = "<group>"; };
+		9DF6A0732CC0EFC9009EC544 /* LentaInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LentaInteractor.swift; sourceTree = "<group>"; };
+		9DF6A0752CC0EFDA009EC544 /* LentaModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LentaModule.swift; sourceTree = "<group>"; };
+		9DF6A0772CC10256009EC544 /* LentaPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LentaPhotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +153,7 @@
 		841278C42CB406D300C6296D /* VK */ = {
 			isa = PBXGroup;
 			children = (
+				9DF6A06A2CC0EDBE009EC544 /* Lenta */,
 				9D70BF9E2CB8FDB10037CB84 /* Login */,
 				841278E52CB442DB00C6296D /* MyFriends */,
 				841278E02CB4351800C6296D /* MyGroupes */,
@@ -230,6 +245,20 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		9DF6A06A2CC0EDBE009EC544 /* Lenta */ = {
+			isa = PBXGroup;
+			children = (
+				9DF6A06B2CC0EDF5009EC544 /* LentaViewController.swift */,
+				9DF6A06D2CC0EF6D009EC544 /* LentaNewsCell.swift */,
+				9DF6A0772CC10256009EC544 /* LentaPhotoCell.swift */,
+				9DF6A06F2CC0EF99009EC544 /* LentaPresenter.swift */,
+				9DF6A0712CC0EFB3009EC544 /* LentaRouter.swift */,
+				9DF6A0732CC0EFC9009EC544 /* LentaInteractor.swift */,
+				9DF6A0752CC0EFDA009EC544 /* LentaModule.swift */,
+			);
+			path = Lenta;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -318,25 +347,32 @@
 				9D1697B32CB95F3700F97BCB /* MyGroupesInteractor.swift in Sources */,
 				9D70BFA42CB9063F0037CB84 /* LoginInteractor.swift in Sources */,
 				841278DA2CB4084A00C6296D /* LoginViewController.swift in Sources */,
+				9DF6A0722CC0EFB3009EC544 /* LentaRouter.swift in Sources */,
 				9DE6CB472CB5608100F5D38F /* VkApiServise.swift in Sources */,
 				9D1697AC2CB95A2F00F97BCB /* AllGroupesModule.swift in Sources */,
 				841278E72CB4430100C6296D /* MyFriendsController.swift in Sources */,
 				9D1697AA2CB959B500F97BCB /* AllGroupesInteractor.swift in Sources */,
+				9DF6A0782CC10256009EC544 /* LentaPhotoCell.swift in Sources */,
 				9D3AE8D92CB50D5A002DBD80 /* PhotoCell.swift in Sources */,
 				9D1697A32CB94AAD00F97BCB /* MyFriendsModule.swift in Sources */,
 				9D7DE4472CB8065C0028EC6E /* PhotosModule.swift in Sources */,
 				841278C62CB406D300C6296D /* AppDelegate.swift in Sources */,
 				841278DF2CB4306B00C6296D /* AllGroupesCell.swift in Sources */,
+				9DF6A0762CC0EFDA009EC544 /* LentaModule.swift in Sources */,
+				9DF6A06C2CC0EDF5009EC544 /* LentaViewController.swift in Sources */,
 				9D16979F2CB94A0B00F97BCB /* MyFriendsRouter.swift in Sources */,
 				9D1697A82CB9595900F97BCB /* AllGroupesRouter.swift in Sources */,
 				9D7DE4432CB805CE0028EC6E /* PhotosPresenter.swift in Sources */,
 				9D7DE4452CB806370028EC6E /* PhotosInteractor.swift in Sources */,
 				9D7DE4492CB806770028EC6E /* PhotosRouter.swift in Sources */,
+				9DF6A0702CC0EF99009EC544 /* LentaPresenter.swift in Sources */,
+				9DF6A0742CC0EFC9009EC544 /* LentaInteractor.swift in Sources */,
 				841278E92CB4431400C6296D /* MyFriendsCell.swift in Sources */,
 				9D70BFA02CB8FFF80037CB84 /* LoginPresenter.swift in Sources */,
 				9D70BFA62CB906F80037CB84 /* LoginModule.swift in Sources */,
 				9D62639C2CBE62680007EB7E /* Groupe.swift in Sources */,
 				841278E42CB4365300C6296D /* MyGroupesCell.swift in Sources */,
+				9DF6A06E2CC0EF6D009EC544 /* LentaNewsCell.swift in Sources */,
 				841278E22CB4363F00C6296D /* MyGroupesController.swift in Sources */,
 				9D1697A62CB958E300F97BCB /* AllGroupesPresenter.swift in Sources */,
 				9D1697B52CB95F8F00F97BCB /* MyGroupesModule.swift in Sources */,
