@@ -8,11 +8,15 @@
 import Foundation
 
 protocol LentaPresenterProtocol: AnyObject {
-    
+  //  var news: [News] { get }
+    var view: LentaViewController? { get }
+    func viewDidLoaded()
+    func newsDidLoaded(news: [News])
 }
 
 class LentaPresenter {
-    weak var view: LentaViewProtocol?
+ //   var news = [News]()
+    weak var view: LentaViewController?
     var router: LentaRouterProtocol
     var interactor: LentaInteractorProtocol
     
@@ -20,8 +24,17 @@ class LentaPresenter {
         self.interactor = interactor
         self.router = router
     }
+    
 }
 
 extension LentaPresenter: LentaPresenterProtocol {
+    func viewDidLoaded() {
+        interactor.loadNews()
+     //   view?.tableView.reloadData()
+    }
     
+    func newsDidLoaded(news: [News]) {
+ //       self.news = news
+   //     view?.tableView.reloadData()
+    }
 }

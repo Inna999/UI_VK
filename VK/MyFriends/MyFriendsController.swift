@@ -46,6 +46,7 @@ class MyFriendsViewController: UITableViewController {
         guard let friend = friends?[indexPath.row] else { return cell }
         cell.friendName.text = friend.firstName + " " + friend.lastName
         //загрузка аватара из url
+        
         cell.friendAvatar.image = getPhotoFromUrl(friend.photo)
         return cell
     }
@@ -60,10 +61,14 @@ class MyFriendsViewController: UITableViewController {
     }
     // получение фото по url
     func getPhotoFromUrl(_ url: String) -> UIImage? {
-        if let photoURL:URL = URL(string: url), let photoData = try? Data(contentsOf: photoURL) {
-            return UIImage(data: photoData)
+        var image: UIImage? = nil
+        DispatchQueue.global().async {
+            if let photoURL:URL = URL(string: url), let photoData = try? Data(contentsOf: photoURL) {
+                image =  UIImage(data: photoData)
+            }
         }
-        return nil
+        RunLoop.current.run(until: Date()+1)
+        return image
     }
 }
 

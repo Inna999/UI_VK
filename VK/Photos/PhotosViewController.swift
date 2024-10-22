@@ -45,9 +45,12 @@ class PhotosViewController: UICollectionViewController {
     
     func getPhotoFromUrl(_ url: String) -> UIImage? {
         var image: UIImage? = nil
+        DispatchQueue.global().async {
             if let photoURL:URL = URL(string: url), let photoData = try? Data(contentsOf: photoURL) {
                 image = UIImage(data: photoData)
             }
+        }
+        RunLoop.current.run(until: Date()+1)
         return image
     }
 }

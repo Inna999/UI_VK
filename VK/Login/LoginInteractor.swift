@@ -16,7 +16,7 @@ class LoginInteractor: LoginInteractorProtocol {
     
     /// прверка логина/пароля
     func checkPassword(login: String, password: String) -> Bool {
-        if login == "1" && password == "1" {
+        if login == "" && password == "" {
             return true
         } else {
             return false

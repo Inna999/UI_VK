@@ -28,38 +28,73 @@ class VkApiServise {
         //добавляем дополнительные параметры, если они были переданы
         params.forEach { key, value in parameters[key] = value }
        // делаем запрос
-        AF.request(url, method: .get, parameters: parameters).responseData {
-            respons in
-                guard let data = respons.value else { return }
-                do {
-                    let json = try JSON(data: data)
-                    switch method {
-                        case "users.getFollowers":
-                        let users = json["response"]["items"].compactMap { User(json: $0.1) }
-                            self.saveDataToRealm(users)
-                        case "photos.get":
-                        let photos = json["response"]["items"].compactMap { Photo(json: $0.1) }
-                            completion(photos)
-                        self.saveDataToRealm(photos)
-                        default:
-                            debugPrint("Неверный метод")
-                        }
-                } catch {
-                    debugPrint(respons.error as Any)
-                }
-        }
+//        AF.request(url, method: .get, parameters: parameters).responseData {
+//            [weak self] respons in
+//                guard let data = respons.value else { return }
+//                do {
+//                    let json = try JSON(data: data)
+//                    switch method {
+//                        case "users.getFollowers":
+//                        let users = json["response"]["items"].compactMap { User(json: $0.1) }
+//                        self?.saveDataToRealm(users)
+//                        case "photos.get":
+//                        let photos = json["response"]["items"].compactMap { Photo(json: $0.1) }
+//                            completion(photos)
+//                        self?.saveDataToRealm(photos)
+//                        default:
+//                            debugPrint("Неверный метод")
+//                        }
+//                } catch {
+//                    debugPrint(respons.error as Any)
+//                }
+//        }
+        
+        let opq = OperationQueue()
+        
+        let request = AF.request(url, method: .get, parameters: parameters)
+        
+        let getDataOperation = GetDataOperation(request: request)
+        opq.addOperation(getDataOperation)
+        
+        let parseData = ParseData(kindData: .User)
+        parseData.addDependency(getDataOperation)
+        opq.addOperation(parseData)
+        
+//        let op = GetDataOperation(request: request)
+//        op.completionBlock = {
+//            guard let data = op.data else { return }
+//            do {
+//                let json = try JSON(data: data)
+//                switch method {
+//                case "users.getFollowers":
+//                    let users = json["response"]["items"].compactMap { User(json: $0.1) }
+//                    self.saveDataToRealm(users)
+//                case "photos.get":
+//                    let photos = json["response"]["items"].compactMap { Photo(json: $0.1) }
+//                    completion(photos)
+//                    //       self.saveDataToRealm(photos)
+//                default:
+//                    debugPrint("Неверный метод")
+//                }
+//            } catch {
+//                debugPrint("Error")
+//            }
+//        }
+//        OperationQueue().addOperation(op)
+        
+        RunLoop.current.run(until: Date() + 1)
     }
     
     // запись в БД
-    func saveDataToRealm<T: Object>(_ data: [T]) {
-        Realm.Configuration.defaultConfiguration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
-        do {
-            let realm = try Realm()
-            realm.beginWrite()
-            realm.add(data)
-            try realm.commitWrite()
-        } catch {
-            print(error)
-        }
-    }
+//    func saveDataToRealm<T: Object>(_ data: [T]) {
+//        Realm.Configuration.defaultConfiguration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+//        do {
+//            let realm = try Realm()
+//            realm.beginWrite()
+//            realm.add(data)
+//            try realm.commitWrite()
+//        } catch {
+//            print(error)
+//        }
+//    }
 }

@@ -8,15 +8,19 @@
 import UIKit
 protocol LentaViewProtocol: AnyObject {
     var presenter: LentaPresenterProtocol? { get }
+    var news: [News] { get set }
 }
 
 class LentaViewController: UITableViewController {
     var presenter: LentaPresenterProtocol?
     var module = LentaModule()
+    var news = [News]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         module.build(with: self)
+        presenter?.viewDidLoaded()
+       
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,23 +33,30 @@ class LentaViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return news.count ?? 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! LentaNewsCell
+      //  guard let news = presenter?.news else { return cell }
+        cell.title.text = news[indexPath.row].title
+        cell.author.text = news[indexPath.row].author
+    //    cell.date.text = news[indexPath.row].date
+        // загрузка фото по url
+        if let photoURL:URL = URL(string: news[indexPath.row].imageArt), let photoData = try? Data(contentsOf: photoURL) {
+            cell.imageNews.image = UIImage(data: photoData)
+        }
+        cell.article.text = news[indexPath.row].article
+        cell.article.numberOfLines = 0
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
