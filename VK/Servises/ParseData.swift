@@ -12,7 +12,6 @@ import RealmSwift
 enum KindData {
     case User
     case News
-    case Photo
 }
 
 class ParseData: Operation {
@@ -39,13 +38,10 @@ class ParseData: Operation {
                 outputData = user
             case .News:
                 let news = json["articles"].compactMap {
-                                    News(json: $0.1)
-                                }
+                    News(json: $0.1)
+                }
                 outputData = news
-            case .Photo:
-                print("")
             }
-           
         } catch {
             debugPrint(error.localizedDescription)
         }

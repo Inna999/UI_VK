@@ -8,7 +8,7 @@
 import UIKit
 protocol LentaViewProtocol: AnyObject {
     var presenter: LentaPresenterProtocol? { get }
-    var news: [News] { get set }
+    var news: [News] { get }
 }
 
 class LentaViewController: UITableViewController {
@@ -16,47 +16,48 @@ class LentaViewController: UITableViewController {
     var module = LentaModule()
     var news = [News]()
 
+    let queue: OperationQueue = {
+        let queue = OperationQueue()
+        queue.qualityOfService = .userInteractive
+        return queue
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         module.build(with: self)
         presenter?.viewDidLoaded()
-       
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return news.count ?? 0
+        return news.count
     }
 
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! LentaNewsCell
-      //  guard let news = presenter?.news else { return cell }
+    override func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "NewsCell",
+            for: indexPath
+        ) as! LentaNewsCell
         cell.title.text = news[indexPath.row].title
         cell.author.text = news[indexPath.row].author
-    //    cell.date.text = news[indexPath.row].date
-        // загрузка фото по url
-        if let photoURL:URL = URL(string: news[indexPath.row].imageArt), let photoData = try? Data(contentsOf: photoURL) {
-            cell.imageNews.image = UIImage(data: photoData)
-        }
+        
+        let getCacheImage = GetCacheImage(url: news[indexPath.row].imageArt)
+        let setImageToRow = SetImageToRow(cell: cell, indexPath: indexPath, tableVeiw: tableView)
+        setImageToRow.addDependency(getCacheImage)
+        queue.addOperation(getCacheImage)
+        OperationQueue.main.addOperation(setImageToRow)
+        
         cell.article.text = news[indexPath.row].article
-        cell.article.numberOfLines = 0
         return cell
     }
-    
 
     /*
     // Override to support conditional editing of the table view.

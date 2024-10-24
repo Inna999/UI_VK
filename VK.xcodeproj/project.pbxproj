@@ -40,6 +40,8 @@
 		9D44DCD32CC791BB00F3586C /* GetDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D44DCD22CC791BB00F3586C /* GetDataOperation.swift */; };
 		9D44DCD52CC7999300F3586C /* ParseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D44DCD42CC7999300F3586C /* ParseData.swift */; };
 		9D44DCD72CC7BE4200F3586C /* ReloadTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D44DCD62CC7BE4200F3586C /* ReloadTableController.swift */; };
+		9D566FA02CCA270A00D1685C /* GetCacheImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D566F9F2CCA270A00D1685C /* GetCacheImage.swift */; };
+		9D566FA22CCA3BC400D1685C /* SetImageToRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D566FA12CCA3BC400D1685C /* SetImageToRow.swift */; };
 		9D5828662CC630B4004A49E5 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5828652CC630B4004A49E5 /* News.swift */; };
 		9D6263942CBE426D0007EB7E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9D6263932CBE426D0007EB7E /* RealmSwift */; };
 		9D6263972CBE43C80007EB7E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9D6263962CBE43C80007EB7E /* Alamofire */; };
@@ -55,6 +57,7 @@
 		9D7DE4452CB806370028EC6E /* PhotosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7DE4442CB806370028EC6E /* PhotosInteractor.swift */; };
 		9D7DE4472CB8065C0028EC6E /* PhotosModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7DE4462CB8065C0028EC6E /* PhotosModule.swift */; };
 		9D7DE4492CB806770028EC6E /* PhotosRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7DE4482CB806770028EC6E /* PhotosRouter.swift */; };
+		9D9FC3082CC7C74200FBD025 /* GetPhotoFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9FC3072CC7C74200FBD025 /* GetPhotoFromUrl.swift */; };
 		9DE6CB472CB5608100F5D38F /* VkApiServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE6CB462CB5608100F5D38F /* VkApiServise.swift */; };
 		9DF6A06C2CC0EDF5009EC544 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6A06B2CC0EDF5009EC544 /* NewsViewController.swift */; };
 		9DF6A06E2CC0EF6D009EC544 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6A06D2CC0EF6D009EC544 /* NewsCell.swift */; };
@@ -111,6 +114,8 @@
 		9D44DCD22CC791BB00F3586C /* GetDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataOperation.swift; sourceTree = "<group>"; };
 		9D44DCD42CC7999300F3586C /* ParseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseData.swift; sourceTree = "<group>"; };
 		9D44DCD62CC7BE4200F3586C /* ReloadTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadTableController.swift; sourceTree = "<group>"; };
+		9D566F9F2CCA270A00D1685C /* GetCacheImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCacheImage.swift; sourceTree = "<group>"; };
+		9D566FA12CCA3BC400D1685C /* SetImageToRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetImageToRow.swift; sourceTree = "<group>"; };
 		9D5828652CC630B4004A49E5 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		9D62639B2CBE62680007EB7E /* Groupe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groupe.swift; sourceTree = "<group>"; };
 		9D70BF9F2CB8FFF80037CB84 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -123,6 +128,7 @@
 		9D7DE4442CB806370028EC6E /* PhotosInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosInteractor.swift; sourceTree = "<group>"; };
 		9D7DE4462CB8065C0028EC6E /* PhotosModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModule.swift; sourceTree = "<group>"; };
 		9D7DE4482CB806770028EC6E /* PhotosRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRouter.swift; sourceTree = "<group>"; };
+		9D9FC3072CC7C74200FBD025 /* GetPhotoFromUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPhotoFromUrl.swift; sourceTree = "<group>"; };
 		9DE6CB462CB5608100F5D38F /* VkApiServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkApiServise.swift; sourceTree = "<group>"; };
 		9DF6A06B2CC0EDF5009EC544 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		9DF6A06D2CC0EF6D009EC544 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
@@ -226,16 +232,19 @@
 		9D1697AD2CB95C6900F97BCB /* Servises */ = {
 			isa = PBXGroup;
 			children = (
-				9D7DE4402CB7D1FF0028EC6E /* Photo.swift */,
-				9DE6CB462CB5608100F5D38F /* VkApiServise.swift */,
-				9D7DE43E2CB7ADDA0028EC6E /* User.swift */,
-				9D62639B2CBE62680007EB7E /* Groupe.swift */,
-				9D238FB12CC2580A008F72AE /* NewsServise.swift */,
-				9D5828652CC630B4004A49E5 /* News.swift */,
 				9D44DCD02CC7911D00F3586C /* AsyncOperation.swift */,
 				9D44DCD22CC791BB00F3586C /* GetDataOperation.swift */,
+				9D9FC3072CC7C74200FBD025 /* GetPhotoFromUrl.swift */,
+				9D62639B2CBE62680007EB7E /* Groupe.swift */,
+				9D5828652CC630B4004A49E5 /* News.swift */,
+				9D238FB12CC2580A008F72AE /* NewsServise.swift */,
 				9D44DCD42CC7999300F3586C /* ParseData.swift */,
+				9D7DE4402CB7D1FF0028EC6E /* Photo.swift */,
 				9D44DCD62CC7BE4200F3586C /* ReloadTableController.swift */,
+				9D7DE43E2CB7ADDA0028EC6E /* User.swift */,
+				9DE6CB462CB5608100F5D38F /* VkApiServise.swift */,
+				9D566F9F2CCA270A00D1685C /* GetCacheImage.swift */,
+				9D566FA12CCA3BC400D1685C /* SetImageToRow.swift */,
 			);
 			path = Servises;
 			sourceTree = "<group>";
@@ -363,10 +372,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D566FA22CCA3BC400D1685C /* SetImageToRow.swift in Sources */,
 				9D7DE4412CB7D1FF0028EC6E /* Photo.swift in Sources */,
+				9D9FC3082CC7C74200FBD025 /* GetPhotoFromUrl.swift in Sources */,
 				9D1697AF2CB95E6300F97BCB /* MyGroupesPresenter.swift in Sources */,
 				9D44DCD72CC7BE4200F3586C /* ReloadTableController.swift in Sources */,
 				9D7DE43F2CB7ADDA0028EC6E /* User.swift in Sources */,
+				9D566FA02CCA270A00D1685C /* GetCacheImage.swift in Sources */,
 				9D1697B32CB95F3700F97BCB /* MyGroupesInteractor.swift in Sources */,
 				9D70BFA42CB9063F0037CB84 /* LoginInteractor.swift in Sources */,
 				9D238FB22CC2580A008F72AE /* NewsServise.swift in Sources */,

@@ -43,19 +43,7 @@ class NewsServise {
         let reloadTableController = ReloadTableController(controller: controller)
         reloadTableController.addDependency(parseData)
         OperationQueue.main.addOperation(reloadTableController)
-        
-//        AF.request(url, method: .get, parameters: params).responseData { respons in
-//            guard let data = respons.value else { return }
-//            do {
-//                let json = try JSON(data: data)
-//                let news = json["articles"].compactMap {
-//                    News(json: $0.1)
-//                }
-//                completion(news)
-//            } catch {
-//                debugPrint(respons.error as Any)
-//            }
-//        }
+
     }
 }
 
