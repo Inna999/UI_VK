@@ -15,6 +15,7 @@ import SwiftyJSON
 class NewsServise {
     
     let controller: LentaViewController
+    var data: Data?
     
     init(controller: LentaViewController) {
         self.controller = controller
@@ -29,20 +30,27 @@ class NewsServise {
             "sortBy": "popularity",
             "apiKey": "73b673ceb6044b66b87f1a870f2d615b"
         ]
-        let opq = OperationQueue()
+       
         let request = AF.request(url, method: .get, parameters: params)
         
-        let getDataOperation = GetDataOperation(request: request)
-        opq.addOperation(getDataOperation)
-        
-        let parseData = ParseData(kindData: .News)
-        parseData.addDependency(getDataOperation)
-        opq.addOperation(parseData)
-        
-        let reloadTableController = ReloadTableController(controller: controller)
-        reloadTableController.addDependency(parseData)
-        OperationQueue.main.addOperation(reloadTableController)
-
+        let dispatchGroup = DispatchGroup()
+        DispatchQueue.global().async(group: dispatchGroup) {
+            request.responseData(queue: DispatchQueue.global()) { [weak self] response in
+                self?.data = response.value
+            }
+        }
+        RunLoop.current.run(until: Date() + 1)
+        dispatchGroup.notify(queue: DispatchQueue.global()) {
+            let parseData = NewsParseData()
+            let dispatchGroup = DispatchGroup()
+            DispatchQueue.global().async(group: dispatchGroup) {
+                parseData.parse(self.data)
+            }
+            dispatchGroup.notify(queue: DispatchQueue.main) {
+                self.controller.news = parseData.outputData as! [News]
+                self.controller.tableView.reloadData()
+            }
+        }
     }
 }
 
