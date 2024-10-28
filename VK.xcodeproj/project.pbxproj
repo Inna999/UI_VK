@@ -199,6 +199,7 @@
 				9D1697A72CB9595900F97BCB /* AllGroupesRouter.swift */,
 				9D1697A92CB959B500F97BCB /* AllGroupesInteractor.swift */,
 				9D1697AB2CB95A2F00F97BCB /* AllGroupesModule.swift */,
+				9D62639B2CBE62680007EB7E /* Groupe.swift */,
 			);
 			path = AllGroupes;
 			sourceTree = "<group>";
@@ -225,6 +226,7 @@
 				9D16979E2CB94A0B00F97BCB /* MyFriendsRouter.swift */,
 				9D1697A02CB94A4500F97BCB /* MyFriendsInteractor.swift */,
 				9D1697A22CB94AAD00F97BCB /* MyFriendsModule.swift */,
+				9D7DE43E2CB7ADDA0028EC6E /* User.swift */,
 			);
 			path = MyFriends;
 			sourceTree = "<group>";
@@ -235,13 +237,9 @@
 				9D44DCD02CC7911D00F3586C /* AsyncOperation.swift */,
 				9D44DCD22CC791BB00F3586C /* GetDataOperation.swift */,
 				9D9FC3072CC7C74200FBD025 /* GetPhotoFromUrl.swift */,
-				9D62639B2CBE62680007EB7E /* Groupe.swift */,
-				9D5828652CC630B4004A49E5 /* News.swift */,
 				9D238FB12CC2580A008F72AE /* NewsServise.swift */,
 				9D44DCD42CC7999300F3586C /* ParseData.swift */,
-				9D7DE4402CB7D1FF0028EC6E /* Photo.swift */,
 				9D44DCD62CC7BE4200F3586C /* ReloadTableController.swift */,
-				9D7DE43E2CB7ADDA0028EC6E /* User.swift */,
 				9DE6CB462CB5608100F5D38F /* VkApiServise.swift */,
 				9D566F9F2CCA270A00D1685C /* GetCacheImage.swift */,
 				9D566FA12CCA3BC400D1685C /* SetImageToRow.swift */,
@@ -258,6 +256,7 @@
 				9D7DE4482CB806770028EC6E /* PhotosRouter.swift */,
 				9D7DE4442CB806370028EC6E /* PhotosInteractor.swift */,
 				9D7DE4462CB8065C0028EC6E /* PhotosModule.swift */,
+				9D7DE4402CB7D1FF0028EC6E /* Photo.swift */,
 			);
 			path = Photos;
 			sourceTree = "<group>";
@@ -283,6 +282,7 @@
 				9DF6A0712CC0EFB3009EC544 /* NewsRouter.swift */,
 				9DF6A0732CC0EFC9009EC544 /* NewsInteractor.swift */,
 				9DF6A0752CC0EFDA009EC544 /* NewsModule.swift */,
+				9D5828652CC630B4004A49E5 /* News.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";

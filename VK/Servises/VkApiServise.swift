@@ -40,17 +40,4 @@ class VkApiServise {
 
         RunLoop.current.run(until: Date() + 1)
     }
-    
-    // запись в БД
-//    func saveDataToRealm<T: Object>(_ data: [T]) {
-//        Realm.Configuration.defaultConfiguration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
-//        do {
-//            let realm = try Realm()
-//            realm.beginWrite()
-//            realm.add(data)
-//            try realm.commitWrite()
-//        } catch {
-//            print(error)
-//        }
-//    }
 }
