@@ -14,14 +14,13 @@ import SwiftyJSON
 
 class NewsServise {
     
-   // var news = [News]()
     let controller: LentaViewController
     
     init(controller: LentaViewController) {
         self.controller = controller
     }
     
-    func loadNews(){//completion: @escaping([News]) -> Void) {
+    func loadNews(){
         let url = "https://newsapi.org/v2/everything"
         let params = [
             "q": "apple",
