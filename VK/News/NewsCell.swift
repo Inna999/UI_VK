@@ -8,7 +8,14 @@
 import UIKit
 
 class LentaNewsCell: UITableViewCell {
-
+    
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var author: UILabel!
+   
+    @IBOutlet weak var imageNews: UIImageView!
+    
+    @IBOutlet weak var article: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

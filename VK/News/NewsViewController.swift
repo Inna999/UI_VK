@@ -8,44 +8,56 @@
 import UIKit
 protocol LentaViewProtocol: AnyObject {
     var presenter: LentaPresenterProtocol? { get }
+    var news: [News] { get }
 }
 
 class LentaViewController: UITableViewController {
     var presenter: LentaPresenterProtocol?
     var module = LentaModule()
+    var news = [News]()
 
+    let queue: OperationQueue = {
+        let queue = OperationQueue()
+        queue.qualityOfService = .userInteractive
+        return queue
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         module.build(with: self)
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        presenter?.viewDidLoaded()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return news.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+    override func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "NewsCell",
+            for: indexPath
+        ) as! LentaNewsCell
+        cell.title.text = news[indexPath.row].title
+        cell.author.text = news[indexPath.row].author
+        
+        let getCacheImage = GetCacheImage(url: news[indexPath.row].imageArt)
+        let setImageToRow = SetImageToRow(cell: cell, indexPath: indexPath, tableVeiw: tableView)
+        setImageToRow.addDependency(getCacheImage)
+        queue.addOperation(getCacheImage)
+        OperationQueue.main.addOperation(setImageToRow)
+        
+        cell.article.text = news[indexPath.row].article
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

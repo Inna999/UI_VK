@@ -25,10 +25,10 @@ class PhotosInteractor: PhotosInteractorProtocol {
     }
 
     // получение фото из БД
-    func getPhotos(_ photos: inout Results<Photo>?, _ idFriend: String) {
-        guard let realm = try? Realm() else { return }
-        photos = realm.objects(Photo.self)
-    }
+//    func getPhotos(_ photos: inout Results<Photo>?, _ idFriend: String) {
+//        guard let realm = try? Realm() else { return }
+//        photos = realm.objects(Photo.self)
+//    }
     
 }
 
